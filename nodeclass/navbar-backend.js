@@ -30,7 +30,7 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { "Content-Type": "text/js" });
     res.write(homeJs);
     res.end();
-  } else if (url === "/navbar/logo.svg") {
+  } else if (url === "/") {
     res.writeHead(200, { "Content-Type": "image/svg+xml" });
     res.write(logo);
     res.end();
