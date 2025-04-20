@@ -1,21 +1,31 @@
-<a href="/dashboard">&larr; Back</a>
-<div class="admin-title">
-  <h2>View / Edit Post</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.title %></title>
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard">&larr; Back</a>
+        <div class="admin-title">
+            <h2>View / Edit Post</h2>
+            <form action="/delete-blog/<%= data._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" class="btn-delete btn">
+            </form>
+        </div>
 
-  <form action="/delete-blog/<%= data._id %>?_method=DELETE" method="POST">
-    <input type="submit" value="Delete" class="btn-delete btn">
-  </form>
-
-</div>
-
-<form action="/edit-blog/<%= data._id %>?_method=PUT" method="POST">
-
-  <label for="title"><b>Title</b></label>
-  <input type="text" placeholder="Post Title" name="title" >
-
-  <label for="body"><b>Content</b></label>
-  <textarea name="body" cols="50" rows="10"></textarea>
-
-  <input type="submit" value="Update" class="btn">
-
-</form>
+        <form action="/edit-blog/<%= data._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="title"><b>Title</b></label>
+                <input type="text" id="title" placeholder="Post Title" name="title" value="<%= data.title %>" required>
+            </div>
+            <div class="form-group">
+                <label for="body"><b>Content</b></label>
+                <textarea id="body" name="body" cols="50" rows="10" required><%= data.body %></textarea>
+            </div>
+            <input type="submit" value="Update" class="btn">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,25 +1,41 @@
-<h3>Sign In</h3>
 
-<form action="/login" method="POST">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter your username" name="username">
+<div id="login-form">
+    <h3>Sign In</h3>
+    <form action="/login" id="login" method="POST">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter your username" name="username">
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter your password" name="password">
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter your password" name="password">
 
-    <input type="submit" value="Login" class="btn">
+        <input type="submit" value="Login" class="btn">
+    </form>
+    <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+</div>
 
-</form>
 
- <h3>Register</h3>
+<div id="register-form" style="display: none;">
+    <h3>Register</h3>
+    <form action="/register" id="register" method="POST">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter your username" name="username">
 
-<form action="/register" method="POST">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter your username" name="username">
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter your password" name="password">
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter your password" name="password">
+        <input type="submit" value="Register" class="btn">
+    </form>
+    <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+</div>
 
-    <input type="submit" value="Register" class="btn">
+<script>
+    function showRegister() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('register-form').style.display = 'block';
+    }
 
-</form> 
+    function showLogin() {
+        document.getElementById('register-form').style.display = 'none';
+        document.getElementById('login-form').style.display = 'block';
+    }
+</script>
