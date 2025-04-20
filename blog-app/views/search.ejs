@@ -1,22 +1,24 @@
-<div class="author">
-    <h1 class="author__heading">Search Results......</h1>
+<div class="container">
+  <div class="author">
+      <h1 class="author__heading">Search Results...</h1>
   </div>
   
   <section class="articles">    
-  
-    <ul class="article-ul">
-      <% data.forEach(blog => { %>
-        <li>
-          <a href="/blog/<%= blog._id %>">
-            <span><%= blog.title %></span>
-            <span class="article-list__date"><%= blog.createdAt.toDateString() %></span>
-          </a>
-        </li>
-        <% }) %>
-    </ul>
-  
-  
-      <a href="#" class="pagination">&lt; View Older Posts</a>
-  
-  
+      <% if (data && data.length > 0) { %>
+          <ul class="article-ul">
+              <% data.forEach(blog => { %>
+                  <li>
+                      <a href="/blog/<%= blog._id %>">
+                          <span class="article-title"><%= blog.title %></span>
+                          <span class="article-list__date"><%= blog.createdAt.toDateString() %></span>
+                      </a>
+                  </li>
+              <% }); %>
+          </ul>
+          <a href="#" class="pagination">&lt; View Older Posts</a>
+      <% } else { %>
+          <p>No results found. Try searching with different keywords.</p>
+      <% } %>
   </section>
+  
+</div>

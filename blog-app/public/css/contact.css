@@ -86,11 +86,13 @@
   }
   input[type="submit"]{
     background: #34ebcf;
-    padding: 5px;
+    padding: 15px;
     margin-top: 40px;
     border-radius: 90px;
-    font-weight: 600;
+    font-weight: bolder;
     cursor: pointer;
+    font-size: larger;
+
   }
   input[type="submit"]:active{
     background: linear-gradient(90deg, #34ebcf, #eb4634);
